@@ -11,7 +11,8 @@ const LandingPage = () => {
   const [active, setActive] = useState(1);
 
   return (
-    <div className="relative min-h-screen w-full bg-gradient-to-tr from-[#55fdc4] via-[#C3FFEB] to-[#55fdc4]">
+    <div className="relative min-h-screen w-full bg-gradient-to-tr from-[#55fdc4] via-[#C3FFEB] to-[#55fdc4] flex flex-col">
+
       <Navbar />
       <Nav2 props={{ active, setActive }} />
       <div className="sm:py-10 md:py-15 ">
