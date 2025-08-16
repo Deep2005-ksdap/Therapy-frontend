@@ -16,6 +16,14 @@ margin: auto;
   overflow: hidden;
   animation: slideIn 0.5s ease-out;
 }
+/* Example: max-width 640px */
+@media (max-width: 640px) {
+ .chatbot-container{
+  width: 100%;
+  margin: 0px;
+ }
+}
+
 
 @keyframes slideIn {
   from {
