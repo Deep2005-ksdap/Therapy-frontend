@@ -5,8 +5,8 @@ const team = [
   {
     icon: <FaUserTie className="text-6xl text-green-800 mb-3" />,
     name: "Deepanshu Kumar",
-    role: "Team Leader",
-    desc: "Handles project planning and ensures smooth collaboration across all parts of the hackathon project.",
+    role: "Team Leader || Frontend Developer",
+    desc: "Handles project planning, Responsible for React and Tailwind implementation, turning designs into functional components.",
     bg: "bg-[#a6decb] border-green-200", // greenish
     btn: "bg-green-600 hover:bg-green-700"
   },
@@ -29,8 +29,8 @@ const team = [
   {
     icon: <FaUserGraduate className="text-6xl text-red-800 mb-3" />,
     name: "Abhay",
-    role: "Frontend Developer",
-    desc: "Responsible for React and Tailwind implementation, turning designs into functional components.",
+    role: "Backend Developer",
+    desc: "Responsible for making Chatbot features, and AI api integration",
     bg: "bg-[#f7d4d4] border-red-200", // light red
     btn: "bg-red-600 hover:bg-red-700"
   }

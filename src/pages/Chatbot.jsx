@@ -1,17 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2 } from 'lucide-react';
-import '../Chatbot.css';
+import React, { useState, useRef, useEffect } from "react";
+import { Send, Bot, User, Loader2 } from "lucide-react";
+import "../Chatbot.css";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
       text: "Hello! I'm your AI assistant. How can I help you today?",
-      sender: 'bot',
-      timestamp: new Date()
-    }
+      sender: "bot",
+      timestamp: new Date(),
+    },
   ]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
@@ -29,12 +29,12 @@ const Chatbot = () => {
     const userMessage = {
       id: Date.now(),
       text: inputValue,
-      sender: 'user',
-      timestamp: new Date()
+      sender: "user",
+      timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInputValue('');
+    setMessages((prev) => [...prev, userMessage]);
+    setInputValue("");
     setIsTyping(true);
 
     // Simulate bot response
@@ -42,10 +42,10 @@ const Chatbot = () => {
       const botResponse = {
         id: Date.now() + 1,
         text: getBotResponse(inputValue),
-        sender: 'bot',
-        timestamp: new Date()
+        sender: "bot",
+        timestamp: new Date(),
       };
-      setMessages(prev => [...prev, botResponse]);
+      setMessages((prev) => [...prev, botResponse]);
       setIsTyping(false);
     }, 1000 + Math.random() * 2000); // Random delay between 1-3 seconds
   };
@@ -61,20 +61,23 @@ const Chatbot = () => {
       "That's a good point! Here's my perspective on this...",
       "I'm glad you asked that. Let me explain...",
       "Interesting! Here's what I can share with you...",
-      "I'd be happy to help with that! Here's what I think..."
+      "I'd be happy to help with that! Here's what I think...",
     ];
     return responses[Math.floor(Math.random() * responses.length)];
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
   };
 
   const formatTime = (timestamp) => {
-    return timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return timestamp.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   };
 
   return (
@@ -93,18 +96,26 @@ const Chatbot = () => {
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`message ${message.sender === 'user' ? 'user-message' : 'bot-message'}`}
+            className={`message ${
+              message.sender === "user" ? "user-message" : "bot-message"
+            }`}
           >
             <div className="message-avatar">
-              {message.sender === 'user' ? <User size={16} /> : <Bot size={16} />}
+              {message.sender === "user" ? (
+                <User size={16} />
+              ) : (
+                <Bot size={16} />
+              )}
             </div>
             <div className="message-content">
               <div className="message-text">{message.text}</div>
-              <div className="message-time">{formatTime(message.timestamp)}</div>
+              <div className="message-time">
+                {formatTime(message.timestamp)}
+              </div>
             </div>
           </div>
         ))}
-        
+
         {isTyping && (
           <div className="message bot-message typing">
             <div className="message-avatar">
@@ -118,7 +129,7 @@ const Chatbot = () => {
             </div>
           </div>
         )}
-        
+
         <div ref={messagesEndRef} />
       </div>
 
@@ -146,4 +157,3 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
-
